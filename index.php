@@ -2,7 +2,24 @@
 include_once "./includes/_header.php";
 require_once "./utils/pdo.php";
 
-echo "helloooo";
+$requeteAffichage = "SELECT * FROM nouveaux_eleves";
+$query = $pdo->prepare($requeteAffichage);
+$query->execute();
+$nouveauxEleves = $query->fetchAll();
+?>
+
+<h1>Annuaire NWS</h1>
+
+<?php foreach ($nouveauxEleves as $nouveauxEleve) { ?>
+    <p><?= $nouveauxEleve['nom']; ?></p>
+    <p><?= $nouveauxEleve['prenom']; ?></p>
+    <p><?= $nouveauxEleve['age']; ?></p>
+    <p><?= $nouveauxEleve['diplome']; ?></p>
+    <p><?= $nouveauxEleve['specialite']; ?></p>
+    <p><?= $nouveauxEleve['email']; ?></p>
+    <p><?= $nouveauxEleve['telephone']; ?></p>
+<?php } ?>
 
 
+<?php
 include_once "./includes/_footer.php";
