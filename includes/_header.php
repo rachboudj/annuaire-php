@@ -10,9 +10,12 @@
 <body>
     
 <header>
-    <?php
-        echo "header";
-    ?>
+    <nav>
+        <ul>
+            <li><a href="/annuaire-php">Accueil</a></li>
+            <li><a href="/annuaire-php/inscription.php">Inscription</a></li>
+        </ul>
+    </nav>
 </header>
 
 
