@@ -11,6 +11,7 @@ $nouveauxEleves = $query->fetchAll();
 <h1>Annuaire NWS</h1>
 
 <?php foreach ($nouveauxEleves as $nouveauxEleve) { ?>
+    <p><?= $nouveauxEleve['id']; ?></p>
     <p><?= $nouveauxEleve['nom']; ?></p>
     <p><?= $nouveauxEleve['prenom']; ?></p>
     <p><?= $nouveauxEleve['age']; ?></p>
@@ -18,6 +19,8 @@ $nouveauxEleves = $query->fetchAll();
     <p><?= $nouveauxEleve['specialite']; ?></p>
     <p><?= $nouveauxEleve['email']; ?></p>
     <p><?= $nouveauxEleve['telephone']; ?></p>
+    <a href="/annuaire-php/modifEleve.php?id=<?= $nouveauxEleve['id']; ?>">Éditer</a>
+
 <?php } ?>
 
 
