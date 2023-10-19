@@ -1,0 +1,8 @@
+{
+    "database": {
+        "db_name": "annuairenws",
+        "host": "localhost",
+        "user": "rachid",
+        "password": "rachidroot"
+    }
+}
