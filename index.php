@@ -20,6 +20,7 @@ $nouveauxEleves = $query->fetchAll();
     <p><?= $nouveauxEleve['email']; ?></p>
     <p><?= $nouveauxEleve['telephone']; ?></p>
     <a href="/annuaire-php/modifEleve.php?id=<?= $nouveauxEleve['id']; ?>">Éditer</a>
+    <a href="/annuaire-php/supprEleve.php?id=<?= $nouveauxEleve['id']; ?>">Supprimer</a>
 
 <?php } ?>
 
