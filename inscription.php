@@ -18,7 +18,7 @@ if (!empty($_POST['submited'])) {
     $errors = validationTexte($errors, $prenom, 'prenom', 3, 100);
     $errors = validationTexte($errors, $diplome, 'diplome', 3, 150);
     $errors = validationTexte($errors, $email, 'email', 3, 150);
-    $errors = validationTexte($errors, $email, 'telephone', 10, 15);
+    $errors = validationTexte($errors, $telephone, 'telephone', 10, 15);
 
     if (count($errors) === 0) {
     $requeteNouvelEleve = "INSERT INTO nouveaux_eleves(nom, prenom, age, diplome, specialite, email, telephone) VALUES (:nom, :prenom, :age, :diplome, :specialite, :email, :telephone)";
