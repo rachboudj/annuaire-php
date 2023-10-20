@@ -1,16 +1,26 @@
 <?php
 include_once "./includes/_header.php";
 require_once "./utils/pdo.php";
+require_once "./utils/functions.php";
+
+$errors = array();
 
 if (!empty($_POST['submited'])) {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $age = $_POST['age'];
-    $diplome = $_POST['diplome'];
-    $specialite = $_POST['specialite'];
-    $email = $_POST['email'];
-    $telephone = $_POST['telephone'];
+    $nom = trim(strip_tags($_POST['nom']));
+    $prenom = trim(strip_tags($_POST['prenom']));
+    $age = trim(strip_tags($_POST['age']));
+    $diplome = trim(strip_tags($_POST['diplome']));
+    $specialite = trim(strip_tags($_POST['specialite']));
+    $email = trim(strip_tags($_POST['email']));
+    $telephone = trim(strip_tags($_POST['telephone']));
 
+    $errors = validationTexte($errors, $nom, 'nom', 3, 100);
+    $errors = validationTexte($errors, $prenom, 'prenom', 3, 100);
+    $errors = validationTexte($errors, $diplome, 'diplome', 3, 150);
+    $errors = validationTexte($errors, $email, 'email', 3, 150);
+    $errors = validationTexte($errors, $email, 'telephone', 10, 15);
+
+    if (count($errors) === 0) {
     $requeteNouvelEleve = "INSERT INTO nouveaux_eleves(nom, prenom, age, diplome, specialite, email, telephone) VALUES (:nom, :prenom, :age, :diplome, :specialite, :email, :telephone)";
     $query = $pdo->prepare($requeteNouvelEleve);
     $query->bindValue(':nom', $nom, PDO::PARAM_STR);
@@ -21,6 +31,7 @@ if (!empty($_POST['submited'])) {
     $query->bindValue(':email', $email, PDO::PARAM_STR);
     $query->bindValue(':telephone', $telephone, PDO::PARAM_STR);
     $query->execute();
+    }
 }
 
 ?>
@@ -37,6 +48,9 @@ if (!empty($_POST['submited'])) {
                                                     if (isset($_POST['nom'])) {
                                                         echo $_POST['nom'];
                                                     } ?>">
+            <span class="error"><?php if (!empty($errors['nom'])) {
+                                    echo $errors['nom'];
+                                } ?></span>
         </div>
 
         <div class="containerInput">
@@ -45,6 +59,9 @@ if (!empty($_POST['submited'])) {
                                                     if (isset($_POST['prenom'])) {
                                                         echo $_POST['prenom'];
                                                     } ?>">
+            <span class="error"><?php if (!empty($errors['prenom'])) {
+                                    echo $errors['prenom'];
+                                } ?></span>
         </div>
 
         <div class="containerInput">
@@ -61,6 +78,9 @@ if (!empty($_POST['submited'])) {
                                                         if (isset($_POST['diplome'])) {
                                                             echo $_POST['diplome'];
                                                         } ?>">
+            <span class="error"><?php if (!empty($errors['diplome'])) {
+                                    echo $errors['diplome'];
+                                } ?></span>
         </div>
 
         <div class="containerInput">
@@ -81,6 +101,9 @@ if (!empty($_POST['submited'])) {
                                                     if (isset($_POST['email'])) {
                                                         echo $_POST['email'];
                                                     } ?>">
+            <span class="error"><?php if (!empty($errors['email'])) {
+                                    echo $errors['email'];
+                                } ?></span>
         </div>
 
         <div class="containerInput">
@@ -89,6 +112,9 @@ if (!empty($_POST['submited'])) {
                                                         if (isset($_POST['telephone'])) {
                                                             echo $_POST['telephone'];
                                                         } ?>">
+            <span class="error"><?php if (!empty($errors['telephone'])) {
+                                    echo $errors['telephone'];
+                                } ?></span>
         </div>
 
         <input class="btn" type="submit" value="Ajouter un nouvel élève" name="submited">
