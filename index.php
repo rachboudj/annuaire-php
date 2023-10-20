@@ -22,7 +22,15 @@ if (isset($_GET['sort'])) {
 
 
 if(isset($_GET['filter'])) {
-    if ($_GET['filter'] === 'jsp') {
+    if ($_GET['filter'] === 'commdigitale') {
+        $trieFiltreEleve = "WHERE specialite = 'Communication digitale'";
+    } elseif($_GET['filter'] === 'commgraph') {
+        $trieFiltreEleve = "WHERE specialite = 'Communication graphique'";
+    } elseif($_GET['filter'] === 'dev') {
+        $trieFiltreEleve = "WHERE specialite = 'Développement web'";
+    } elseif($_GET['filter'] === 'market') {
+        $trieFiltreEleve = "WHERE specialite = 'Marketing digitale'";
+    } elseif($_GET['filter'] === 'jsp') {
         $trieFiltreEleve = "WHERE specialite = 'Je ne sais pas encore'";
     }
 }
@@ -41,6 +49,10 @@ $nouveauxEleves = $query->fetchAll();
 <a href="?sort=idc">Premier élève ajouté</a>
 <a href="?sort=agec">Âge croissant</a>
 <a href="?sort=aged">Âge décroissant</a>
+<a href="?filter=commdigitale">Communication digitale</a>
+<a href="?filter=commgraph">Communication graphique</a>
+<a href="?filter=dev">Développement web</a>
+<a href="?filter=market">Marketing digitale</a>
 <a href="?filter=jsp">Je ne sais pas encore</a>
 
 <?php foreach ($nouveauxEleves as $nouveauxEleve) { ?>
