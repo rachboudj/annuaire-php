@@ -13,11 +13,11 @@
     <nav>
         <ul>
             <li><a href="/annuaire-php">Accueil</a></li>
+            <li><a href="/annuaire-php/listeEleve.php">Liste des élèves</a></li>
             <li><a href="/annuaire-php/inscription.php">Inscription</a></li>
         </ul>
     </nav>
 </header>
-
-
+<main>
 <?php
 
