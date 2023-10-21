@@ -33,17 +33,7 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
         $errors = validationTexte($errors, $telephone, 'telephone', 9, 15);
 
         if (count($errors) === 0) {
-            $sql = "UPDATE nouveaux_eleves SET nom= :nom, prenom= :prenom, age= :age, diplome= :diplome, specialite= :specialite, email= :email, telephone= :telephone WHERE id= :id";
-            $query = $pdo->prepare($sql);
-            $query->bindValue(':nom', $nom, PDO::PARAM_STR);
-            $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
-            $query->bindValue(':age', $age, PDO::PARAM_STR);
-            $query->bindValue(':diplome', $diplome, PDO::PARAM_STR);
-            $query->bindValue(':specialite', $specialite, PDO::PARAM_STR);
-            $query->bindValue(':email', $email, PDO::PARAM_STR);
-            $query->bindValue(':telephone', $telephone, PDO::PARAM_STR);
-            $query->bindValue(':id', $id, PDO::PARAM_INT);
-            $query->execute();
+            requeteModif($pdo, $nom, $prenom, $age, $diplome, $specialite, $email, $telephone, $id);
         }
     }
 }
