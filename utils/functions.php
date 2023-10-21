@@ -52,3 +52,49 @@ function requeteAjout($pdo, $nom, $prenom, $age, $diplome, $specialite, $email, 
     $query->bindValue(':telephone', $telephone, PDO::PARAM_STR);
     $query->execute();
 }
+
+function trie(&$trieEleve) {
+    if (isset($_GET['sort'])) {
+        if ($_GET['sort'] === 'alphad') {
+            $trieEleve = "ORDER BY nom DESC";
+        } elseif($_GET['sort'] === 'alphac') {
+            $trieEleve = "ORDER BY nom ASC";
+        } elseif($_GET['sort'] === 'idd') {
+            $trieEleve = "ORDER BY id DESC";
+        } elseif($_GET['sort'] === 'idc') {
+            $trieEleve = "ORDER BY id ASC";
+        } elseif($_GET['sort'] === 'agec') {
+            $trieEleve = "ORDER BY age ASC";
+        } elseif($_GET['sort'] === 'aged') {
+            $trieEleve = "ORDER BY age DESC";
+        }
+    }
+}
+
+function filtre(&$typeFiltre) {
+    if(isset($_GET['filter'])) {
+        if ($_GET['filter'] === 'commdigitale') {
+            $typeFiltre = "WHERE specialite = 'Communication digitale'";
+        } elseif($_GET['filter'] === 'commgraph') {
+            $typeFiltre = "WHERE specialite = 'Communication graphique'";
+        } elseif($_GET['filter'] === 'dev') {
+            $typeFiltre = "WHERE specialite = 'Développement web'";
+        } elseif($_GET['filter'] === 'market') {
+            $typeFiltre = "WHERE specialite = 'Marketing digitale'";
+        } elseif($_GET['filter'] === 'jsp') {
+            $typeFiltre = "WHERE specialite = 'Je ne sais pas encore'";
+        }
+    }
+}
+
+function recherche(&$typeFiltre) {
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $termeRecherche = '%' . $_GET['search'] . '%';
+        if($typeFiltre) {
+            $typeFiltre = " WHERE nom LIKE '$termeRecherche' OR prenom LIKE '$termeRecherche'";
+        
+        } else {
+            $typeFiltre = " WHERE nom LIKE '$termeRecherche' OR prenom LIKE '$termeRecherche'";
+        }
+        }
+}
