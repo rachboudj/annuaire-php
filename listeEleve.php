@@ -1,50 +1,16 @@
 <?php
 include_once "./includes/_header.php";
 require_once "./utils/pdo.php";
+require_once "./utils/functions.php";
 
 $trieEleve = "ORDER BY id DESC";
 $filtreRechercheEleve = "";
 
-if (isset($_GET['sort'])) {
-    if ($_GET['sort'] === 'alphad') {
-        $trieEleve = "ORDER BY nom DESC";
-    } elseif($_GET['sort'] === 'alphac') {
-        $trieEleve = "ORDER BY nom ASC";
-    } elseif($_GET['sort'] === 'idd') {
-        $trieEleve = "ORDER BY id DESC";
-    } elseif($_GET['sort'] === 'idc') {
-        $trieEleve = "ORDER BY id ASC";
-    } elseif($_GET['sort'] === 'agec') {
-        $trieEleve = "ORDER BY age ASC";
-    } elseif($_GET['sort'] === 'aged') {
-        $trieEleve = "ORDER BY age DESC";
-    }
-}
+trie($trieEleve);
 
+filtre($filtreRechercheEleve);
 
-if(isset($_GET['filter'])) {
-    if ($_GET['filter'] === 'commdigitale') {
-        $filtreRechercheEleve = "WHERE specialite = 'Communication digitale'";
-    } elseif($_GET['filter'] === 'commgraph') {
-        $filtreRechercheEleve = "WHERE specialite = 'Communication graphique'";
-    } elseif($_GET['filter'] === 'dev') {
-        $filtreRechercheEleve = "WHERE specialite = 'Développement web'";
-    } elseif($_GET['filter'] === 'market') {
-        $filtreRechercheEleve = "WHERE specialite = 'Marketing digitale'";
-    } elseif($_GET['filter'] === 'jsp') {
-        $filtreRechercheEleve = "WHERE specialite = 'Je ne sais pas encore'";
-    }
-}
-
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-$termeRecherche = '%' . $_GET['search'] . '%';
-if($filtreRechercheEleve) {
-    $filtreRechercheEleve = " WHERE nom LIKE '$termeRecherche' OR prenom LIKE '$termeRecherche'";
-
-} else {
-    $filtreRechercheEleve = " WHERE nom LIKE '$termeRecherche' OR prenom LIKE '$termeRecherche'";
-}
-}
+recherche($filtreRechercheEleve);
 
 $requeteAffichage = "SELECT * FROM nouveaux_eleves " . $filtreRechercheEleve . " " . $trieEleve;
 $query = $pdo->prepare($requeteAffichage);
