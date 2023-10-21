@@ -34,6 +34,7 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
         if (count($errors) === 0) {
             requeteModif($pdo, $nom, $prenom, $age, $diplome, $specialite, $email, $telephone, $id);
+            header('Location: /annuaire-php/listeEleve.php?');
         }
     }
 }
