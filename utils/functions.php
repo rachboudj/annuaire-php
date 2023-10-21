@@ -22,7 +22,6 @@ function requeteSuppr($id, $pdo)
         $query = $pdo->prepare($requeteSuppr);
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         $query->execute();
-        header('Location: /annuaire-php/listEleve.php?');
     }
 }
 
@@ -39,6 +38,17 @@ function requeteModif($pdo, $nom, $prenom, $age, $diplome, $specialite, $email, 
     $query->bindValue(':telephone', $telephone, PDO::PARAM_STR);
     $query->bindValue(':id', $id, PDO::PARAM_INT);
     $query->execute();
-    header('Location: /annuaire-php/listEleve.php?');
 }
 
+function requeteAjout($pdo, $nom, $prenom, $age, $diplome, $specialite, $email, $telephone) {
+    $requeteNouvelEleve = "INSERT INTO nouveaux_eleves(nom, prenom, age, diplome, specialite, email, telephone) VALUES (:nom, :prenom, :age, :diplome, :specialite, :email, :telephone)";
+    $query = $pdo->prepare($requeteNouvelEleve);
+    $query->bindValue(':nom', $nom, PDO::PARAM_STR);
+    $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+    $query->bindValue(':age', $age, PDO::PARAM_STR);
+    $query->bindValue(':diplome', $diplome, PDO::PARAM_STR);
+    $query->bindValue(':specialite', $specialite, PDO::PARAM_STR);
+    $query->bindValue(':email', $email, PDO::PARAM_STR);
+    $query->bindValue(':telephone', $telephone, PDO::PARAM_STR);
+    $query->execute();
+}
