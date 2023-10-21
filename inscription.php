@@ -21,16 +21,8 @@ if (!empty($_POST['submited'])) {
     $errors = validationTexte($errors, $telephone, 'telephone', 10, 15);
 
     if (count($errors) === 0) {
-    $requeteNouvelEleve = "INSERT INTO nouveaux_eleves(nom, prenom, age, diplome, specialite, email, telephone) VALUES (:nom, :prenom, :age, :diplome, :specialite, :email, :telephone)";
-    $query = $pdo->prepare($requeteNouvelEleve);
-    $query->bindValue(':nom', $nom, PDO::PARAM_STR);
-    $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
-    $query->bindValue(':age', $age, PDO::PARAM_STR);
-    $query->bindValue(':diplome', $diplome, PDO::PARAM_STR);
-    $query->bindValue(':specialite', $specialite, PDO::PARAM_STR);
-    $query->bindValue(':email', $email, PDO::PARAM_STR);
-    $query->bindValue(':telephone', $telephone, PDO::PARAM_STR);
-    $query->execute();
+        requeteAjout($pdo, $nom, $prenom, $age, $diplome, $specialite, $email, $telephone);
+        header('Location: /annuaire-php/listeEleve.php?');
     }
 }
 
