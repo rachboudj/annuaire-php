@@ -10,7 +10,6 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
     ));
-    echo "Connexion établie !";
 } catch (PDOException $e) {
     echo "Erreur de connexion : " . $e->getMessage();
 }
