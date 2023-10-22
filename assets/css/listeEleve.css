@@ -1,0 +1,118 @@
+.containerTitreSearch {
+    background-color: var(--color1);
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerTitreSearch h1 {
+    text-align: center;
+}
+
+.containerTitreSearch form {
+    margin-top: 2em;
+}
+
+.containerTitreSearch form .inputSearch {
+    border: 2px solid var(--color3);
+    padding: 10px 15px;
+    font-family: var(font-2);
+}
+
+.containerFiltreTrie {
+    padding: 2em;
+    background-color: var(--color2);
+}
+
+.containerFiltreTrie h2 {
+    font-family: var(font-1);
+}
+
+.containerFiltreTrie span {
+    display: block;
+    text-decoration: underline;
+    margin-top: 1em;
+}
+
+.containerFiltreTrie .containerFiltre {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerFiltreTrie .containerTrie {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerFiltreTrie .btnFiltre {
+    border: 1px solid var(--color3);
+    padding: 10px;
+    font-size: 12px;
+    background-color: var(--color4);
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.containerFiltreTrie p {
+    margin-top: 2em;
+}
+
+.containerCard {
+    padding: 2em;
+}
+
+.card {
+    margin-top: 2em;
+    border: 2px solid var(--color3);
+    padding: 2em;
+    box-shadow: 6px 6px 0px var(--color3);
+    box-sizing: border-box;
+}
+
+.card .underline {
+    text-decoration: underline;
+}
+
+.card .age {
+    font-family: var(font1);
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.card .btnContact {
+    margin-top: 1em;
+    display: flex;
+}
+
+.card .btnContact{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.card .btnContact p img{
+    width: 20px;
+    margin-right: 5px;
+}
+
+.card .btnContact .btnEmail p {
+    width: 80%;
+}
+
+.card .btnOperation {
+    margin-top: 2em;
+}
+
+.card .btnOperation .btnEdit {
+    text-decoration: underline;
+}
+
+.card .btnOperation .btnSuppr {
+    text-decoration: underline;
+    color: var(--rouge);
+}
