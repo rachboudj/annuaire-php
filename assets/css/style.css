@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+@import url(./inscription.css);
+@import url(./listeEleve.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color1: #F6F8FF;
+    --color2: #ffeeb7;
+    --color3: #1a1a1a;
+    --color4: #ffffff;
+    --rouge: #FA8072;
+    --jaune: #ffdd6b;
+    --font-1: 'Ubuntu Mono', monospace;
+    --font-2: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-2);
+}
+
+h1 {
+    font-family: var(--font-1);
+    font-size: 2em;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+a {
+    color: var(--color3);
+    color: var(--color3);
+    text-decoration: none;
+    font-family: var(--font-2);
+}
+
+.btn-1 {
+    padding: 10px 15px;
+    background-color: var(--color4);
+    border: 2px solid var(--color3);
+    box-shadow: 5px 5px 0px var(--color3);
+}
+
+header {
+    background-color: var(--color1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    position: relative;
+}
+
+header .logo {
+    font-family: var(--font-1);
+    font-size: 2em;
+    font-weight: 900;
+}
+
+header .containerMenuOrdi {
+    display: none;
+}
+
+header .burger-button {
+    z-index: 9;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+header .burger-button span {
+    width: 30px;
+    border: 1px solid var(--color3);
+    background-color: var(--color3);
+    display: block;
+    transition: .5s;
+}
+
+header .burger-top,
+.burger-bottom {
+    position: absolute;
+}
+
+header .burger-top {
+    top: 5px;
+    z-index: 20;
+}
+
+header .burger-bottom {
+    bottom: 5px;
+    z-index: 20;
+}
+
+header .burger-button.active .burger-top {
+    position: absolute;
+    top: 15px;
+    transform: rotate(45deg);
+    border-color: var(--color3);
+    background-color: var(--color3);
+}
+
+header .burger-button.active .burger-middle {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+header .burger-button.active .burger-bottom {
+    position: absolute;
+    bottom: 15px;
+    transform: rotate(-45deg);
+    border-color: var(--color3);
+    background-color: var(--color3);
+}
+
+header .burger-menu {
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    top: -100vh;
+    left: 0px;
+    right: 0px;
+    background-color: var(--color1);
+    padding: 1rem;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    transition: .5s;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header .burger-menu.active {
+    top: 0;
+    bottom: 0;
+}
+
+header .burger-menu .nav-burger ul li {
+    margin-bottom: 4em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--color3);
+}
+
+header .burger-menu .nav-burger ul li a {
+    font-size: 1.5em;
+    color: var(--color3);
+    font-family: var(--font-2);
+}
+
+@media screen and (min-width:992px) {
+    header .containerMenuOrdi {
+        display: flex;
+        width: 65%;
+    }
+
+    header .menu-burger {
+        display: none;
+    }
+
+    header .logo {
+        width: 25%;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+    header nav ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    background-color: var(--color1);
+    padding: 0 1.5em;
+}
+
+.container .containerImg img {
+    width: 100%;
+}
+
+.container .containerText {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 4em;
+    text-align: center;
+}
+
+.container .containerText h1 {
+    font-size: 3em;
+}
+
+.container .containerText p {
+    margin-top: 1em;
+}
+
+.container .containerText button {
+    margin-top: 2em;
+}
+
+@media screen and (min-width:768px) {
+    .container {
+        height: 100vh;
+    }
+
+    .container .containerImg {
+        width: 70%;
+    }
+
+    .container .containerText {
+        text-align: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 70%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .container .containerImg{
+        width: 60%;
+    }
+
+    .container .containerText{
+        width: 40%;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+footer {
+    background-color: var(--color3);
+    color: var(--color1);
+    padding: 10px 15px;
+}

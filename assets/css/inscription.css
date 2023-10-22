@@ -1,0 +1,98 @@
+.container-form {
+    margin: 6em auto 4em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.label-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.checkbox-input {
+    display: flex;
+    margin: 1em auto 1em auto;
+    width: 80%;
+}
+
+.buttons-input {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.label {
+    margin-top: 3em;
+    font-family: var(--font1);
+    font-size: 1em;
+    text-decoration: underline;
+    margin-bottom: 1.4em;
+    position: relative;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.input {
+    /* margin-top: 1em; */
+    outline: 0;
+    border: none;
+    border-bottom: 2px solid var(--color3);
+    background-color: transparent;
+    padding-bottom: 1em;
+    font-family: var(--font2);
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.input:focus {
+    border-bottom: 2px solid var(--color2);
+    outline: none;
+}
+
+.select {
+    border: 2px solid var(--color3);
+    background-color: transparent;
+    padding: 1em 2em;
+    font-family: var(--font2);
+}
+
+.div-buttons {
+    width: 70%;
+}
+
+.error {
+    text-align: left;
+    width: 70%;
+    margin-top: 1em;
+    font-family: var(--font-paragraphe);
+    text-transform: uppercase;
+    color: var(--rouge);
+}
+
+.error2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    color: var(--rouge);
+    font-family: var(--font-paragraphe);
+    text-transform: uppercase;
+}
+
+@keyframes identifier {
+    from {
+        transform: translateY(-100px);
+    }
+}
