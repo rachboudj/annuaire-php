@@ -18,46 +18,61 @@ $query->execute();
 $nouveauxEleves = $query->fetchAll();
 ?>
 
-<h1>Liste des élèves</h1>
+<div class="containerTitreSearch">
+    <h1>Liste des élèves</h1>
 
-<form method="GET" action="">
-    <input type="text" name="search" placeholder="Rechercher...">
-    <input type="submit" value="Rechercher">
-</form>
+    <form method="GET">
+        <input class="inputSearch" type="text" name="search" placeholder="Rechercher un élève...">
+        <input class="btn-1" type="submit" value="Rechercher">
+    </form>
+</div>
 
-<span style="display:block;">Trier</span>
-<a href="?sort=alphac">Nom A - Z</a>
-<a href="?sort=alphad">Nom Z - A</a>
-<a href="?sort=idd">Dernier élève ajouté</a>
-<a href="?sort=idc">Premier élève ajouté</a>
-<a href="?sort=agec">Âge croissant</a>
-<a href="?sort=aged">Âge décroissant</a>
+<div class="containerFiltreTrie">
+    <h2>Filtrer, trier en fonction de vos envies</h2>
+    <span>Trier</span>
+    <div class="containerTrie">
+        <a class="btnFiltre" href="?sort=alphac">Nom A - Z</a>
+        <a class="btnFiltre" href="?sort=alphad">Nom Z - A</a>
+        <a class="btnFiltre" href="?sort=idc">Élève ajouté croissant</a>
+        <a class="btnFiltre" href="?sort=idd">Élève ajouté décroissant</a>
+        <a class="btnFiltre" href="?sort=agec">Âge croissant</a>
+        <a class="btnFiltre" href="?sort=aged">Âge décroissant</a>
+    </div>
 
-<span style="display:block;">Filtrer</span>
-<a href="?filter=commdigitale">Communication digitale</a>
-<a href="?filter=commgraph">Communication graphique</a>
-<a href="?filter=dev">Développement web</a>
-<a href="?filter=market">Marketing digitale</a>
-<a href="?filter=jsp">Je ne sais pas encore</a>
+    <span>Filtrer</span>
+    <div class="containerFiltre">
+        <a class="btnFiltre" href="?filter=commdigitale">Communication digitale</a>
+        <a class="btnFiltre" href="?filter=commgraph">Communication graphique</a>
+        <a class="btnFiltre" href="?filter=dev">Développement web</a>
+        <a class="btnFiltre" href="?filter=market">Marketing digitale</a>
+        <a class="btnFiltre" href="?filter=jsp">Je ne sais pas encore</a>
+    </div>
 
-<?php
-echo "<p>" . count($nouveauxEleves) . " élève(s) trouvé(s)</p>";
+    <?php
+    echo "<p>" . count($nouveauxEleves) . " élève(s) trouvé(s)</p>";
 
-?>
+    ?>
+</div>
 
-<?php foreach ($nouveauxEleves as $nouveauxEleve) { ?>
-    <p><?= $nouveauxEleve['id']; ?></p>
-    <p><?= $nouveauxEleve['nom']; ?></p>
-    <p><?= $nouveauxEleve['prenom']; ?></p>
-    <p><?= $nouveauxEleve['age']; ?></p>
-    <p><?= $nouveauxEleve['diplome']; ?></p>
-    <p><?= $nouveauxEleve['specialite']; ?></p>
-    <p><?= $nouveauxEleve['email']; ?></p>
-    <p><?= $nouveauxEleve['telephone']; ?></p>
-    <a href="/annuaire-php/modifEleve.php?id=<?= $nouveauxEleve['id']; ?>">Éditer</a>
-    <a href="/annuaire-php/supprEleve.php?id=<?= $nouveauxEleve['id']; ?>">Supprimer</a>
+<div class="containerCard">
 
-<?php } ?>
+    <?php foreach ($nouveauxEleves as $nouveauxEleve) { ?>
+        <div class="card">
+            <h3><span class="underline"><?= $nouveauxEleve['prenom']; ?> <?= $nouveauxEleve['nom']; ?>,</span> <span class="age"><?= $nouveauxEleve['age']; ?> ans</span> </h3>
+            <p>Dernier diplôme : <?= $nouveauxEleve['diplome']; ?> | Spécialité envisagé : <?= $nouveauxEleve['specialite']; ?></p>
+            <div class="btnContact">
+                    <p><img src="./assets/img/email.png" alt="Icône d'un enveloppe"> <?= $nouveauxEleve['email']; ?></p>
+                    <p><img src="./assets/img/telephone.png" alt="Icône d'un téléphone"> <?= $nouveauxEleve['telephone']; ?></p>
+            </div>
+            <div class="btnOperation">
+                <a class="btnEdit" href="/annuaire-php/modifEleve.php?id=<?= $nouveauxEleve['id']; ?>">Éditer</a>
+                <a class="btnSuppr" href="/annuaire-php/supprEleve.php?id=<?= $nouveauxEleve['id']; ?>">Supprimer</a>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+
+
 
 
 <?php
