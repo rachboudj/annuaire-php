@@ -41,12 +41,19 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
 ?>
 
-<div class="containerForm">
-    <form method="POST">
+<div class="container-form">
+    <h1>Modifier <?php
+                    if (isset($eleve['prenom'])) {
+                        echo $eleve['prenom'];
+                    } ?> <?php
+                                                            if (isset($eleve['nom'])) {
+                                                                echo $eleve['nom'];
+                                                            } ?> </h1>
+    <form class="form" method="POST">
 
-        <div class="containerInput">
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" value="<?php
+        <div class="label-input">
+            <label class="label" for="nom">Nom</label>
+            <input class="input" type="text" name="nom" value="<?php
                                                     if (isset($eleve['nom'])) {
                                                         echo $eleve['nom'];
                                                     } ?>">
@@ -55,9 +62,9 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" value="<?php
+        <div class="label-input">
+            <label class="label" for="prenom">Prénom</label>
+            <input class="input" type="text" name="prenom" value="<?php
                                                     if (isset($eleve['prenom'])) {
                                                         echo $eleve['prenom'];
                                                     } ?>">
@@ -66,9 +73,9 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="age">Âge</label>
-            <input type="text" name="age" value="<?php
+        <div class="label-input">
+            <label class="label" for="age">Âge</label>
+            <input class="input" type="text" name="age" value="<?php
                                                     if (isset($eleve['age'])) {
                                                         echo $eleve['age'];
                                                     } ?>">
@@ -77,9 +84,9 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="diplome">Diplôme</label>
-            <input type="text" name="diplome" value="<?php
+        <div class="label-input">
+            <label class="label" for="diplome">Diplôme</label>
+            <input class="input" type="text" name="diplome" value="<?php
                                                         if (isset($eleve['diplome'])) {
                                                             echo $eleve['diplome'];
                                                         } ?>">
@@ -88,8 +95,8 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="specialite">Spécialité envisagé</label>
+        <div class="label-input">
+            <label class="label" for="specialite">Spécialité envisagé</label>
             <select name="specialite">
                 <option value="">Choisir la spécialité</option>
                 <option value="Communication digitale" <?php if ($eleve['specialite'] == "Communication digitale") echo "selected"; ?>>Communication digitale</option>
@@ -100,9 +107,9 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
             </select>
         </div>
 
-        <div class="containerInput">
-            <label for="email">E-mail</label>
-            <input type="text" name="email" value="<?php
+        <div class="label-input">
+            <label class="label" for="email">E-mail</label>
+            <input class="input" type="text" name="email" value="<?php
                                                     if (isset($eleve['email'])) {
                                                         echo $eleve['email'];
                                                     } ?>">
@@ -111,9 +118,9 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="telephone">Téléphone</label>
-            <input type="text" name="telephone" value="<?php
+        <div class="label-input">
+            <label class="label" for="telephone">Téléphone</label>
+            <input class="input" type="text" name="telephone" value="<?php
                                                         if (isset($eleve['telephone'])) {
                                                             echo $eleve['telephone'];
                                                         } ?>">
@@ -122,4 +129,7 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
                                 } ?></span>
         </div>
 
-        <input class="btn" type="submit" value="Modifier l'utilisateur" name="submited">
+        <div class="buttons-input">
+
+            <input class="btn-1" type="submit" value="Modifier l'utilisateur" name="submited">
+        </div>
