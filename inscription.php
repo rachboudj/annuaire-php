@@ -28,55 +28,53 @@ if (!empty($_POST['submited'])) {
 
 ?>
 
-<h1>Inscription</h1>
+<div class="container-form">
+    <h1 class="red">Inscription</h1>
+    <form class="form" method="POST">
 
-
-<div class="containerForm">
-    <form method="POST">
-
-        <div class="containerInput">
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" value="<?php
-                                                    if (isset($_POST['nom'])) {
-                                                        echo $_POST['nom'];
-                                                    } ?>">
+        <div class="label-input">
+            <label class="label" for="nom">Nom</label>
+            <input class="input" type="text" name="nom" value="<?php
+                                                                if (isset($_POST['nom'])) {
+                                                                    echo $_POST['nom'];
+                                                                } ?>">
             <span class="error"><?php if (!empty($errors['nom'])) {
                                     echo $errors['nom'];
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" value="<?php
-                                                    if (isset($_POST['prenom'])) {
-                                                        echo $_POST['prenom'];
-                                                    } ?>">
+        <div class="label-input">
+            <label class="label" for="prenom">Prénom</label>
+            <input class="input" type="text" name="prenom" value="<?php
+                                                                    if (isset($_POST['prenom'])) {
+                                                                        echo $_POST['prenom'];
+                                                                    } ?>">
             <span class="error"><?php if (!empty($errors['prenom'])) {
                                     echo $errors['prenom'];
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="age">Âge</label>
-            <input type="text" name="age" value="<?php
-                                                    if (isset($_POST['age'])) {
-                                                        echo $_POST['age'];
-                                                    } ?>">
+        <div class="label-input">
+            <label class="label" for="age">Âge</label>
+            <input class="input" type="text" name="age" value="<?php
+                                                                if (isset($_POST['age'])) {
+                                                                    echo $_POST['age'];
+                                                                } ?>">
         </div>
 
-        <div class="containerInput">
-            <label for="diplome">Diplôme</label>
-            <input type="text" name="diplome" value="<?php
-                                                        if (isset($_POST['diplome'])) {
-                                                            echo $_POST['diplome'];
-                                                        } ?>">
+        <div class="label-input">
+            <label class="label" for="diplome">Diplôme</label>
+            <input class="input" type="text" name="diplome" value="<?php
+                                                                    if (isset($_POST['diplome'])) {
+                                                                        echo $_POST['diplome'];
+                                                                    } ?>">
             <span class="error"><?php if (!empty($errors['diplome'])) {
                                     echo $errors['diplome'];
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="specialite">Spécialité envisagé</label>
+        <div class="label-input">
+            <label class="label" for="specialite">Spécialité envisagé</label>
             <select name="specialite">
                 <option value="">Choisir la spécialité</option>
                 <option value="Communication digitale">Communication digitale</option>
@@ -87,31 +85,34 @@ if (!empty($_POST['submited'])) {
             </select>
         </div>
 
-        <div class="containerInput">
-            <label for="email">E-mail</label>
-            <input type="text" name="email" value="<?php
-                                                    if (isset($_POST['email'])) {
-                                                        echo $_POST['email'];
-                                                    } ?>">
+        <div class="label-input">
+            <label class="label" for="email">E-mail</label>
+            <input class="input" type="text" name="email" value="<?php
+                                                                    if (isset($_POST['email'])) {
+                                                                        echo $_POST['email'];
+                                                                    } ?>">
             <span class="error"><?php if (!empty($errors['email'])) {
                                     echo $errors['email'];
                                 } ?></span>
         </div>
 
-        <div class="containerInput">
-            <label for="telephone">Téléphone</label>
-            <input type="text" name="telephone" value="<?php
-                                                        if (isset($_POST['telephone'])) {
-                                                            echo $_POST['telephone'];
-                                                        } ?>">
+        <div class="label-input">
+            <label class="label" for="telephone">Téléphone</label>
+            <input class="input" type="text" name="telephone" value="<?php
+                                                                        if (isset($_POST['telephone'])) {
+                                                                            echo $_POST['telephone'];
+                                                                        } ?>">
             <span class="error"><?php if (!empty($errors['telephone'])) {
                                     echo $errors['telephone'];
                                 } ?></span>
         </div>
+        <div class="buttons-input">
 
-        <input class="btn" type="submit" value="Ajouter un nouvel élève" name="submited">
+            <input class="btn-1" type="submit" value="Ajouter un nouvel élève" name="submited">
+        </div>
 
 
     </form>
-    <?php
-    include_once "./includes/_footer.php";
+</div>
+<?php
+include_once "./includes/_footer.php";
